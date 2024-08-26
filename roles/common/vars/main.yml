@@ -1,0 +1,31 @@
+# Archivo: roles/common/vars/main.yml
+
+# Lista de paquetes a instalar
+packages:
+  - curl
+  - lsof
+  - mc
+  - nano
+  - tar
+  - unzip
+  - vim
+  - zip
+
+# Configuración de SELinux
+selinux:
+  state: disabled
+  reboot: true
+
+# Configuración de colecta
+collectd:
+  install: true
+  config_file: /etc/collectd/collectd.conf
+  plugins:
+    - df
+    - processes
+    - protocols
+    - swap
+    - tcpconns
+    - uptime
+    - users
+    - vmem

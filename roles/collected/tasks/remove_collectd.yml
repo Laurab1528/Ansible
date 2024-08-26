@@ -1,0 +1,15 @@
+---
+- name: Stop and remove collectd service
+  service:
+    name: collectd
+    state: stopped
+    enabled: no
+  become: yes
+
+- name: Remove collectd
+  apt:
+    name: "{{ item }}"
+    state: absent
+  with_items:
+    - collectd
+    - collectd-write_prometheus

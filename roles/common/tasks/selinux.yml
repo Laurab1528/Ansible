@@ -1,0 +1,6 @@
+---
+- name: Disable SELinux
+  selinux:
+    state: disabled
+  when: selinux_status.changed
+  notify: reboot if SELinux is disabled

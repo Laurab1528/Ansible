@@ -1,0 +1,8 @@
+---
+- name: Install collectd
+  include_tasks: install_collectd.yml
+  when: install_collectd
+
+- name: Remove collectd
+  include_tasks: remove_collectd.yml
+  when: not install_collectd
