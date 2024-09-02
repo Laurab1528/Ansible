@@ -1,6 +1,6 @@
 ---
-- name: Install required packages
-  apt:
+- name: Install packages
+  package:
     name: "{{ item }}"
     state: present
-  with_items: "{{ packages }}"
+  loop: "{{ packages }}"

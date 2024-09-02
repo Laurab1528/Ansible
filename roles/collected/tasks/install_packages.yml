@@ -1,6 +1,6 @@
 ---
-- name: Install required packages
-  apt:
+- name: Install collectd and plugins
+  package:
     name: "{{ item }}"
     state: present
-  with_items: "{{ packages }}"
+  loop: "{{ collectd_packages }}"

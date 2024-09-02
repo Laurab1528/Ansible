@@ -1,0 +1,6 @@
+---
+- name: Install and configure Collectd
+  hosts: managed_nodes
+  become: yes
+  roles:
+    - collectd

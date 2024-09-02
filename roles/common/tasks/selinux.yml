@@ -1,6 +1,5 @@
 ---
-- name: Disable SELinux
-  selinux:
-    state: disabled
-  when: selinux_status.changed
-  notify: reboot if SELinux is disabled
+- name: Ensure SELinux is in permissive mode
+  command: setenforce 0
+  when: ansible_facts['selinux']['status'] == 'enabled'
+  notify: reboot

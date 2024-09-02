@@ -1,8 +1,17 @@
 ---
-- name: Install collectd
-  apt:
-    name: "{{ item }}"
+- name: Install Collectd
+  package:
+    name: collectd
     state: present
-  with_items:
-    - collectd
-    - collectd-write_prometheus
+
+- name: Ensure Collectd service is started and enabled
+  service:
+    name: collectd
+    state: started
+    enabled: yes
+
+- name: Configure Collectd
+  template:
+    src: collectd.conf.j2
+    dest: /etc/collectd.d/prometheus.conf
+  notify: restart collectd

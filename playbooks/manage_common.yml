@@ -1,3 +1,0 @@
-- hosts: managed_nodes
-  roles:
-    - common

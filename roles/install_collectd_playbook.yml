@@ -1,7 +1,0 @@
-# Archivo: install_collectd_playbook.yml
-
-- name: Install and configure collectd
-  hosts: all
-  become: yes  # Asegura que se tienen permisos de superusuario si es necesario
-  roles:
-    - collectd

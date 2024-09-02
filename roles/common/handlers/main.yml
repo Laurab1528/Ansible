@@ -1,3 +1,4 @@
 ---
-- name: reboot if SELinux is disabled
+- name: reboot
   reboot:
+    reboot_timeout: 300

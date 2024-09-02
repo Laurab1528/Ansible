@@ -1,2 +1,4 @@
 ---
-install_collectd: true
+collectd_packages:
+  - collectd
+  - collectd-write_prometheus

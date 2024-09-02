@@ -1,7 +1,0 @@
-# Archivo: playbook_apply_common_role.yml
-
-- name: Apply common role to all nodes
-  hosts: all
-  become: yes  # Usa permisos de superusuario si es necesario
-  roles:
-    - common

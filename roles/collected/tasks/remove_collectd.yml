@@ -1,15 +1,16 @@
 ---
-- name: Stop and remove collectd service
+- name: Stop and remove Collectd
   service:
     name: collectd
     state: stopped
-    enabled: no
-  become: yes
+  ignore_errors: yes
 
-- name: Remove collectd
-  apt:
-    name: "{{ item }}"
+- name: Remove Collectd package
+  package:
+    name: collectd
     state: absent
-  with_items:
-    - collectd
-    - collectd-write_prometheus
+
+- name: Remove Collectd configuration
+  file:
+    path: /etc/collectd.d/prometheus.conf
+    state: absent
