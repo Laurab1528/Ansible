@@ -1,3 +1,6 @@
 ---
+- include_tasks: remove_collectd.yml
+  when: remove_collectd | default(false)
+
 - include_tasks: install_collectd.yml
-- include_tasks: install_packages.yml
+  when: not (remove_collectd | default(false))

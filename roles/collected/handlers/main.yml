@@ -1,5 +1,5 @@
 ---
-- name: restart collectd
+- name: reiniciar collectd
   service:
     name: collectd
     state: restarted

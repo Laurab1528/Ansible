@@ -1,5 +1,5 @@
 ---
-- name: Install and configure Collectd
+- name: Instalar y configurar Collectd
   hosts: managed_nodes
   become: yes
   roles:
