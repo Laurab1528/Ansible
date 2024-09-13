@@ -1,1 +1,7 @@
-ansible-playbook -i inventory playbooks/common_playbook.yml
+   ---
+   - name: Configurar nodos gestionados
+     hosts: managed_nodes
+     become: yes
+     roles:
+       - common
+       - collectd

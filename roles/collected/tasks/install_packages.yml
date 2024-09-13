@@ -1,6 +1,0 @@
----
-- name: Install collectd and plugins
-  package:
-    name: "{{ item }}"
-    state: present
-  loop: "{{ collectd_packages }}"

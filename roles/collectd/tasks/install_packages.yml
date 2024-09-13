@@ -1,0 +1,18 @@
+---
+- name: Instalar Collectd
+  package:
+    name: "{{ item }}"
+    state: present
+  loop: "{{ collectd_packages }}"
+
+- name: Asegurar que el servicio Collectd esté iniciado y habilitado
+  service:
+    name: collectd
+    state: started
+    enabled: yes
+
+- name: Configurar Collectd
+  template:
+    src: collectd.conf.j2
+    dest: /etc/collectd.d/prometheus.conf
+  notify: reiniciar collectd

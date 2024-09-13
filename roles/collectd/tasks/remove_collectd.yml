@@ -1,16 +1,16 @@
 ---
-- name: Stop and remove Collectd
+- name: Detener y eliminar Collectd
   service:
     name: collectd
     state: stopped
   ignore_errors: yes
 
-- name: Remove Collectd package
+- name: Eliminar paquete Collectd
   package:
     name: collectd
     state: absent
 
-- name: Remove Collectd configuration
+- name: Eliminar configuración de Collectd
   file:
     path: /etc/collectd.d/prometheus.conf
     state: absent
